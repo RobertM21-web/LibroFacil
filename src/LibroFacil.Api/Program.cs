@@ -1,34 +1,40 @@
+using LibroFacil.Application.Interfaces;
+using LibroFacil.Application.Services;
+using LibroFacil.Infrastructure.Persistence;
+using LibroFacil.Infrastructure.Repositories;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ──────────────────────────────────────────────────────────────────
+// 1. DbContext — EF Core con SQL Server
+// ──────────────────────────────────────────────────────────────────
+builder.Services.AddDbContext<LibroFacilDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// ──────────────────────────────────────────────────────────────────
+// 2. DIP en acción: la interfaz se resuelve con la implementación concreta
+//    LibroService solo conoce ILibroRepository, nunca LibroRepositoryEf
+// ──────────────────────────────────────────────────────────────────
+builder.Services.AddScoped<ILibroRepository, LibroRepositoryEf>();
+builder.Services.AddScoped<LibroService>();
+
+// ──────────────────────────────────────────────────────────────────
+// 3. Controllers + JSON (serialización camelCase estándar)
+// ──────────────────────────────────────────────────────────────────
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.PropertyNamingPolicy = null; // mantener PascalCase
+    });
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
+// ──────────────────────────────────────────────────────────────────
+// 4. Middleware
+// ──────────────────────────────────────────────────────────────────
 app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapGet("/weatherforecast", () =>
-{
-    var forecast =  Enumerable.Range(1, 5).Select(index =>
-        new WeatherForecast
-        (
-            DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            Random.Shared.Next(-20, 55),
-            summaries[Random.Shared.Next(summaries.Length)]
-        ))
-        .ToArray();
-    return forecast;
-});
+app.UseAuthorization();
+app.MapControllers();
 
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}
