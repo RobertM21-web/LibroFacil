@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6E40D85A-F017-4BDD-89D9-A6FB697244EB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibroFacil.Domain", "src\LibroFacil.Domain\LibroFacil.Domain.csproj", "{76636DFE-A254-4FEA-8FD4-679E9897BA2C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibroFacil.Application", "src\LibroFacil.Application\LibroFacil.Application.csproj", "{B88DC34F-81C9-48B8-8E2B-542F88906CA2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibroFacil.Infrastructure", "src\LibroFacil.Infrastructure\LibroFacil.Infrastructure.csproj", "{6DAC6831-79C3-4C43-856F-37A45BB86B36}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LibroFacil.Api", "src\LibroFacil.Api\LibroFacil.Api.csproj", "{CB025FF3-3342-45E5-A810-7DDD1C0D757A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{76636DFE-A254-4FEA-8FD4-679E9897BA2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76636DFE-A254-4FEA-8FD4-679E9897BA2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76636DFE-A254-4FEA-8FD4-679E9897BA2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76636DFE-A254-4FEA-8FD4-679E9897BA2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B88DC34F-81C9-48B8-8E2B-542F88906CA2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B88DC34F-81C9-48B8-8E2B-542F88906CA2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B88DC34F-81C9-48B8-8E2B-542F88906CA2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B88DC34F-81C9-48B8-8E2B-542F88906CA2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DAC6831-79C3-4C43-856F-37A45BB86B36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DAC6831-79C3-4C43-856F-37A45BB86B36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DAC6831-79C3-4C43-856F-37A45BB86B36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DAC6831-79C3-4C43-856F-37A45BB86B36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB025FF3-3342-45E5-A810-7DDD1C0D757A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB025FF3-3342-45E5-A810-7DDD1C0D757A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB025FF3-3342-45E5-A810-7DDD1C0D757A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB025FF3-3342-45E5-A810-7DDD1C0D757A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{76636DFE-A254-4FEA-8FD4-679E9897BA2C} = {6E40D85A-F017-4BDD-89D9-A6FB697244EB}
+		{B88DC34F-81C9-48B8-8E2B-542F88906CA2} = {6E40D85A-F017-4BDD-89D9-A6FB697244EB}
+		{6DAC6831-79C3-4C43-856F-37A45BB86B36} = {6E40D85A-F017-4BDD-89D9-A6FB697244EB}
+		{CB025FF3-3342-45E5-A810-7DDD1C0D757A} = {6E40D85A-F017-4BDD-89D9-A6FB697244EB}
+	EndGlobalSection
+EndGlobal
